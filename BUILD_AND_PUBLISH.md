@@ -1,4 +1,4 @@
-# Build, Test, and Publish Guide
+b# Build, Test, and Publish Guide
 
 This document provides step-by-step commands to compile, test, and publish the **Snippet Browser** VS Code extension.
 

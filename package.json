@@ -4,7 +4,7 @@
   "publisher": "MarcusVoiceCoder",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MPHil/snippetbrowser"
+    "url": "https://github.com/mark-phillipson/snippetbrowser"
   },
   "icon": "images/Icon.png",
   "description": "To be able to use the command palette to look up available Talon snippets located in the snippet directory.",

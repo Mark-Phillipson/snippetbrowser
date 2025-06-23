@@ -32,6 +32,70 @@ autoComplete: false,
 
 - **snippetbrowser.snippetPath**: (string) Absolute or workspace-relative path to your `.snippet` files folder.
 
+## Snippet File Format
+
+A `.snippet` file uses a custom YAML-like format to define Talon-style snippets. Here's how it works:
+
+### Features
+
+- Custom file extension `.snippet`.
+- Supports syntax highlighting and auto-formatting via the [andreas-talon](https://marketplace.visualstudio.com/items?itemName=AndreasArvidsson.andreas-talon) VS Code extension.
+- Supports both insertion and wrapper snippets (wrapper snippets require [Cursorless](https://www.cursorless.org)).
+- Allows phrase formatters to transform spoken phrases.
+
+### Format
+
+- Use `---` on a line by itself to separate multiple snippet documents in one file.
+- Within each document, use a single `-` line to separate the context metadata (above) from the snippet body (below).
+- Optionally include a top-level context block (no body) to define default values inherited by following documents.
+- Context keys that support multiple values use `|` to separate entries (e.g., `language: javascript | java`).
+
+### Context Fields
+
+| Key            | Required | Multiple Values | Example                     |
+| -------------- | -------- | --------------- | --------------------------- |
+| name           | Yes      | No              | `name: ifStatement`         |
+| description    | No       | No              | `description: My snippet`   |
+| language       | No       | Yes             | `language: javascript       | java` |
+| phrase         | No       | Yes             | `phrase: if                 | else` |
+| insertionScope | No       | Yes             | `insertionScope: statement` |
+
+- `name`: Unique identifier for the snippet.
+- `description`: A human-readable explanation.
+- `language`: Language ID(s) in which the snippet is active.
+- `phrase`: Spoken phrases to trigger insertion.
+- `insertionScope`: Insertion context for wrapper/snippet tools.
+
+### Variables for Tab Stops & Wrappers
+
+You can also define context for individual tab stops (e.g., `$0`, `$1`) or variables:
+
+| Key                | Required | Multiple Values | Example                             |
+| ------------------ | -------- | --------------- | ----------------------------------- |
+| insertionFormatter | No       | Yes             | `$0.insertionFormatter: SNAKE_CASE` |
+| wrapperPhrase      | No       | Yes             | `$0.wrapperPhrase: try              | trying` |
+| wrapperScope       | No       | No              | `$0.wrapperScope: statement`        |
+
+- `insertionFormatter`: Formatter applied to the inserted phrase.
+- `wrapperPhrase`: Spoken form for wrapper snippets (Cursorless).
+- `wrapperScope`: Scope used when wrapping.
+
+### Formatting & Examples
+
+To enable formatting, code completion, and syntax highlighting for `.snippet` files, install the **andreas-talon** extension.
+
+#### Single snippet definition
+
+![Single snippet](images/snippets1.png)
+
+#### Multiple snippet definitions
+
+![Multiple snippets](images/snippets2.png)
+
+#### Default context and multiple values
+
+![Default context](images/snippets3.png)
+
 ## Usage
 
 1. Press `Ctrl+Shift+P` and run **Snippet Browser: Open**.
