@@ -1,3 +1,42 @@
+# Snippet Browser
+
+A Visual Studio Code extension that discovers Talon-style `.snippet` files, lets you search and filter by language, and inserts code snippets at your cursor.
+
+## Features
+
+- Command Palette browser for all snippets (`snippetbrowser.open`).
+- Global setting `snippetbrowser.snippetPath` to point at your snippets folder.
+- Quick commands to set or change the snippet folder (`snippetbrowser.setSnippetPath`).
+- C#-specific shortcuts: insert common `if` and `for` snippets.
+- Automatic prompt on first run if no folder is configured.
+
+## Commands
+
+- **Snippet Browser: Open** (`snippetbrowser.open`)
+  Browse languages and insert any snippet.
+
+- **Snippet Browser: Set Snippet Folder** (`snippetbrowser.setSnippetPath`)
+  Select the folder where your `.snippet` files live.
+
+- **Insert C# If Statement** (`snippetbrowser.insertIfCsharp`)
+  Quickly insert your C# `ifStatement` snippet.
+
+- **Insert C# For Loop** (`snippetbrowser.insertForCsharp`)
+  Quickly insert your C# `for` loop snippet.
+
+## Configuration
+
+- `snippetbrowser.snippetPath` (string, default `""`)
+  Absolute or workspace-relative path to your snippet files folder.
+
+## Usage
+
+1. Run **Snippet Browser: Open** to pick a language then a snippet.
+2. Or use **Snippet Browser: Set Snippet Folder** to configure your snippet directory.
+3. Use **Insert C# If Statement** or **Insert C# For Loop** in any editor for quick insertion.
+
+---
+
 Idea for a Visual Studio Code Extension:
 
  To be able to use the command palette to look up available Talon snippets located in the snippet directory.
@@ -84,4 +123,4 @@ To get formatting, code completion and syntax highlighting for `.snippet` files:
 
 ![snippets3](./images/snippets3.png)
 
-   
+

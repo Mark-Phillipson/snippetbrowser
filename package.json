@@ -1,6 +1,11 @@
 {
   "name": "snippetbrowser",
   "displayName": "snippetbrowser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MPHil/snippetbrowser"
+  },
+  "icon": "images/Icon.png",
   "description": "To be able to use the command palette to look up available Talon snippets located in the snippet directory.",
   "version": "0.0.1",
   "engines": {

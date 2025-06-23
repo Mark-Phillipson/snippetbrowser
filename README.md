@@ -1,71 +1,77 @@
-# snippetbrowser README
+# Snippet Browser
 
-This is the README for your extension "snippetbrowser". After writing up a brief description, we recommend including the following sections.
+A Visual Studio Code extension that discovers, filters, and inserts Talon-style `.snippet` files from a local folder.
+
+![Browse snippets](images/snippets2.png)
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Browse & Filter**: Use the Command Palette to select a language (or _All_) and pick from available snippets.
+- **Configurable Folder**: Set your snippet directory with `Snippet Browser: Set Snippet Folder` or via the `snippetbrowser.snippetPath` setting.
+- **Quick C# Inserts**: One-command insertion of common C# `if` and `for` snippets.
+- **Auto-Prompt**: On first use (when no folder is defined), prompts you to select the snippet folder.
 
-For example if there is an image subfolder under your extension project workspace:
+## Commands
 
-\!\[feature X\]\(images/feature-x.png\)
+| Command                                 | ID                               | Description                                 |
+| --------------------------------------- | -------------------------------- | ------------------------------------------- |
+| Snippet Browser: Open                   | `snippetbrowser.open`            | Browse languages and insert a snippet       |
+| Snippet Browser: Set Snippet Folder     | `snippetbrowser.setSnippetPath`  | Configure or change your `.snippet` folder  |
+| Snippet Browser: Insert C# If Statement | `snippetbrowser.insertIfCsharp`  | Quickly insert the C# `ifStatement` snippet |
+| Snippet Browser: Insert C# For Loop     | `snippetbrowser.insertForCsharp` | Quickly insert the C# `for` loop snippet    |
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Configuration
 
-## Requirements
+```jsonc
+// in settings.json
+autoComplete: false,
+{
+  "snippetbrowser.snippetPath": "", // set to your .snippet folder path
+}
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- **snippetbrowser.snippetPath**: (string) Absolute or workspace-relative path to your `.snippet` files folder.
 
-## Extension Settings
+## Usage
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. Press `Ctrl+Shift+P` and run **Snippet Browser: Open**.
+2. Select a language (or **All**).
+3. Pick a snippet by name (see description and phrase hints).
+4. Snippet code will be inserted at your cursor.
 
-For example:
+> On first run, if no snippet folder is configured, an open-folder dialog will prompt you to select it automatically.
 
-This extension contributes the following settings:
+## Build & Test
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```pwsh
+# Install deps
+npm install
 
-## Known Issues
+# Compile
+npm run compile
+# or watch mode
+npm run watch
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+# Run & Debug
+# Press F5 in VS Code to launch the Extension Development Host
 
-## Release Notes
+# Lint & Test
+npm run lint
+npm test
+```
 
-Users appreciate release notes as you update your extension.
+## Package & Publish
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+```pwsh
+# Bump version in package.json
+# Compile before publishing
+npm run compile
+# Create .vsix
+envs, vsce package
+# Publish to Marketplace
+envs, vsce publish
+```
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+For more information, see the [extension guidelines](https://code.visualstudio.com/api/references/extension-guidelines) and the [snippet format spec](SnippetBrowser.md).
