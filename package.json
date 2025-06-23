@@ -10,7 +10,10 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:snippetbrowser.open"
+    "onCommand:snippetbrowser.open",
+    "onCommand:snippetbrowser.setSnippetPath",
+    "onCommand:snippetbrowser.insertIfCsharp",
+    "onCommand:snippetbrowser.insertForCsharp"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -18,6 +21,18 @@
       {
         "command": "snippetbrowser.open",
         "title": "Snippet Browser: Open"
+      },
+      {
+        "command": "snippetbrowser.setSnippetPath",
+        "title": "Snippet Browser: Set Snippet Folder"
+      },
+      {
+        "command": "snippetbrowser.insertIfCsharp",
+        "title": "Snippet Browser: Insert C# If Statement"
+      },
+      {
+        "command": "snippetbrowser.insertForCsharp",
+        "title": "Snippet Browser: Insert C# For Loop"
       }
     ],
     "configuration": {
